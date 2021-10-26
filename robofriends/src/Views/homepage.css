@@ -1,39 +1,60 @@
+.mainpage
+{
+    display: grid;
+    place-items: center;
+}
 .Title{
-    background-color: aquamarine;
+    background-color:transparent;
     text-align: center;
     align-content: center;
     padding: 50px;
 }
 
 #pageTitle{
-    color: white;
+    color: black;
 }
 
-.Card
+.divRobots
 {
+    padding-left: 50px;
+    padding-right: 50px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
-    align-content: center;
-}
-
-.Cards{
-    height: auto;
-    padding: 5px;
-    flex: 20%;
-    background-color: aquamarine;
-    margin: 5px;
-    border-radius: 10px;
-}
-.cardImage{
-    max-height: 70%;
-    max-width: 90%;
     width: 100%;
+    background-color: rgb(17, 92, 88);
 }
 
-@media (max-width: 800px) {
-    .Cards {
-      flex: 45%;
-    }
-  }
+.cardsRobots:hover
+{
+    transition: all .4s ease-in-out;
+    transform: scale(1.05);
+}
 
+.cardsRobots{
+    background-color: aquamarine;
+    flex: 10%;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: grey 2px;
+}
+
+.cardImage{
+    width: 85%;  
+}
+
+.searchBox
+{
+    height: 40px;
+    width: 200px;
+    margin: 10px;
+}
+
+.searchBox:focus
+{
+    border: 1px solid blue;
+}

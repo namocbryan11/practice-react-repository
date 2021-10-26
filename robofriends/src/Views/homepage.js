@@ -1,32 +1,39 @@
-import logo from '../logo.svg';
 import './homepage.css';
 import React from 'react';
-
-import nana from '../images/avatar1.jpg';
-import guinnevere from '../images/avatar2.jpg';
-import change from '../images/avatar3.jpg';
-import odette from '../images/avatar4.jpg';
+import {robots} from './robots.js';
+import CardList from './CardList.js';
+import RobotSearch from './RobotSearch.js';
 
 class Homepage extends React.Component {
+constructor()
+{
+  super();
+  this.state=
+  {
+    robots: robots,
+    search: ''
+  }
+}
+
+onSearchChange = (event) =>
+{
+  this.setState({search: event.target.value})
+}
+
 render (){
+  const filter = this.state.robots.filter(robot => {
+    return robot.name.toLowerCase().includes(this.state.search.toLowerCase())
+  })
+  console.log(filter);
+
   return (
-    <div>
+    <div className="mainpage">
       <div className="Title">
         <h1 id="pageTitle">Robofriends</h1>
       </div>
-      <div className="Card">
-        <div className="Cards">
-          <img className="cardImage" src={nana} alt="nana"/>
-        </div>
-        <div className="Cards">
-          <img className="cardImage" src={guinnevere} alt="guinnevere"/>
-        </div>
-        <div className="Cards">
-          <img className="cardImage" src={change} alt="chang-e"/>  
-        </div>
-        <div className="Cards">
-          <img className="cardImage" src={odette} alt="odette"/>  
-        </div>
+      <RobotSearch SearchChange={this.onSearchChange}/>
+      <div className="divRobots">
+        <CardList robots={filter}/>
       </div>
     </div> 
     
