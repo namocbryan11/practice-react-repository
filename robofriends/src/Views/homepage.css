@@ -1,0 +1,39 @@
+.Title{
+    background-color: aquamarine;
+    text-align: center;
+    align-content: center;
+    padding: 50px;
+}
+
+#pageTitle{
+    color: white;
+}
+
+.Card
+{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+}
+
+.Cards{
+    height: auto;
+    padding: 5px;
+    flex: 20%;
+    background-color: aquamarine;
+    margin: 5px;
+    border-radius: 10px;
+}
+.cardImage{
+    max-height: 70%;
+    max-width: 90%;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .Cards {
+      flex: 45%;
+    }
+  }
+
