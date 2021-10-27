@@ -1,18 +1,28 @@
 import './homepage.css';
 import React from 'react';
-import {robots} from './robots.js';
 import CardList from './CardList.js';
 import RobotSearch from './RobotSearch.js';
+import ApiService from '../Utils/ApiService';
+import Scroll from './Scroll.js';
+import ErrorChecker from './ErrorChecker';
 
 class Homepage extends React.Component {
-constructor()
+constructor(props)
 {
-  super();
+  super(props);
   this.state=
   {
-    robots: robots,
+    robots: [],
     search: ''
   }
+}
+
+componentDidMount = () =>
+{
+  ApiService.getAllUsers().then((response) => {
+    console.log(response);
+    this.setState({robots: response.data});
+  })
 }
 
 onSearchChange = (event) =>
@@ -27,16 +37,20 @@ render (){
   console.log(filter);
 
   return (
-    <div className="mainpage">
-      <div className="Title">
-        <h1 id="pageTitle">Robofriends</h1>
-      </div>
-      <RobotSearch SearchChange={this.onSearchChange}/>
-      <div className="divRobots">
-        <CardList robots={filter}/>
-      </div>
-    </div> 
-    
+    <ErrorChecker>
+      <div className="mainpage">
+        {/* div for the title header */}
+        <div className="Title">
+          <h1 id="pageTitle">Robofriends</h1>
+        </div>
+        {/* implement searchbox */}
+        <RobotSearch SearchChange={this.onSearchChange}/>
+        {/* display cardlist and pass the value of the search */}
+        <Scroll>
+          <CardList robots={filter}/>
+        </Scroll>
+      </div> 
+    </ErrorChecker>
   );
 }
 }
