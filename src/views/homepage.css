@@ -9,8 +9,7 @@
 
 .mainpage
 {
-    display: grid;
-    place-items: center;
+    width: 100%;
     background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%);
 }
 
@@ -47,7 +46,7 @@
 
 .cardsRobots{
     background-color: aquamarine;
-    width: 200px;
+    width: auto;
     margin: 10px;
     border-radius: 5px;
     padding: 5px;
@@ -59,6 +58,13 @@
     width: 85%;
 }
 
+.divSearch
+{
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
 .searchBox
 {
     height: 40px;
@@ -74,6 +80,19 @@
 .scroll
 {
     overflow-y: scroll;
-    height: 500px;
+    height: 800px;
     border: 5px solid white;
+}
+
+@media screen and (max-width: 700px)
+{
+    #pageTitle{
+        font-size: 50px;
+    }
+}
+@media screen and (max-width: 484px)
+{
+    #pageTitle{
+        font-size: 20px;
+    }
 }

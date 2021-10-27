@@ -3,7 +3,7 @@ import React from "react";
 const RobotSearch = (props) =>
 {
     return (
-        <div>
+        <div className="divSearch">
             <input 
             className="searchBox" 
             placeholder="Find my robot"
