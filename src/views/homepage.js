@@ -19,10 +19,19 @@ constructor(props)
 
 componentDidMount = () =>
 {
-  ApiService.getAllUsers().then((response) => {
-    console.log(response);
-    this.setState({robots: response.data});
+  // ApiService.getAllUsers().then((response) => {
+  //   console.log(response);
+  //   this.setState({robots: response.data});
+  // })
+  fetch('https://jsonplaceholder.typicode.com/users')
+  .then((response) => 
+  {
+    return response.json();
   })
+  .then((users) => {
+    console.log(users)
+    this.setState({robots: users})
+  });
 }
 
 onSearchChange = (event) =>
